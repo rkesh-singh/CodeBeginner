@@ -1,5 +1,6 @@
 //https://stackoverflow.com/questions/9942228/kadane-algorithm-negative-numbers
-// https://www.youtube.com/watch?v=ohHWQf1HDfU&vl=en
+//https://www.youtube.com/watch?v=ohHWQf1HDfU&vl=en
+//Kadane's algorithm
 
 public class Max_Sum_Subarray
 {
