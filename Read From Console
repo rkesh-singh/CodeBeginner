@@ -1,0 +1,12 @@
+Scanner
+-------
+
+Scanner sc = new Scanner(System.in);
+int tc_count = sc.nextInt();
+
+BufferedReader
+--------------
+
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+String name = reader.readLine(); 
