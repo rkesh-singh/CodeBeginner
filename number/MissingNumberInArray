@@ -1,0 +1,42 @@
+package sample18;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MissingNumber
+{
+
+	public static void main(String[] args)
+	{
+		System.out.println("Enter Input: ");
+		Scanner sc = new Scanner(System.in);
+		int tc_count = sc.nextInt();
+
+		while (tc_count != 0)
+		{
+			int arraySize = sc.nextInt();
+			int input[] = new int[arraySize - 1];
+
+			for (int i = 0; i < arraySize - 1; i++)
+			{
+				input[i] = sc.nextInt();
+			}
+			System.out.println(Arrays.toString(input));
+			int findMissingNumber = findMissingNumber(input, arraySize);
+			System.out.println(findMissingNumber);
+			tc_count--;
+		}
+		
+	}
+
+	private static int findMissingNumber(int[] input, int arraySize)
+	{
+		int sum_expected = arraySize*(arraySize + 1)/2;
+		for (int i : input)
+		{
+			sum_expected -= i;
+		}
+		
+		return sum_expected;
+	}
+}
