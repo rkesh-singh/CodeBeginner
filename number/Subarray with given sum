@@ -1,0 +1,58 @@
+/* Consider below three cases
+1. Sum is equal to individual no, sum = 8, {15, 2, 4, 8, 9, 5, 10, 40}
+2. sum = 40, {15, 2, 4, 8, 9, 5, 10, 40}
+3. sum = 55, {15, 2, 4, 8, 9, 5, 10, 40}
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class GFG {
+	public static void main (String[] args) throws IOException{
+	
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int tc_count = Integer.parseInt(br.readLine());
+
+		while (tc_count != 0)
+		{
+			String[] split = br.readLine().split(" ");
+			int array_size = Integer.parseInt(split[0]);
+			int d_sum = Integer.parseInt(split[1]);
+			int t_sum = 0, start = 0, end = 0;
+
+			int[] input = new int[array_size];
+			split = br.readLine().split(" ");
+			for (int i = 0; i < split.length; i++)
+			{
+				input[i] = Integer.parseInt(split[i]);
+			}
+
+			for (int i = 0; i < input.length; i++)
+			{
+				if (t_sum > d_sum)
+				{
+					t_sum -= input[start];
+					start++;
+				}
+				if (t_sum == d_sum)
+				{
+					end = i;
+					break;
+				}
+				t_sum += input[i];
+
+			}
+
+			if (t_sum == d_sum)
+				System.out.println(start + 1 + " " + end);
+			else
+				System.out.println("-1");
+			tc_count--;
+		}
+
+		
+
+	}
+}
