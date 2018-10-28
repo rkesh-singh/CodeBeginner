@@ -1,0 +1,61 @@
+/** Given an array A of size N containing 0s, 1s, and 2s; you need to sort the array in ascending order.
+
+Input:
+The first line contains an integer 'T' denoting the total number of test cases. Then T testcases follow. Each testcases contains two lines of input. The first line denotes the size of the array N. The second lines contains the elements of the array A separated by spaces.
+
+Output: 
+For each testcase, print the sorted array.
+**/
+
+
+public class Sortanarrayof0s1sand2s
+{
+
+	public static void main(String[] args)
+	{
+		int[] arr = { 0, 2, 1, 2, 0 };
+
+		/*
+		 * low : to keep left index high : to keep right index mid : to get
+		 * middle element
+		 */
+		int low = 0, high = arr.length - 1, mid = 0;
+
+		// Iterating through the array and
+		// segregating elements
+		while (mid <= high)
+		{
+
+			// If element at mid is 0
+			// move it to left
+			if (arr[mid] == 0)
+			{
+				int temp = arr[low];
+				arr[low] = arr[mid];
+				arr[mid] = temp;
+				low++;
+				mid++;
+			}
+
+			// If element at mid is 1
+			// nothing to do
+			else if (arr[mid] == 1)
+			{
+				mid++;
+			}
+
+			// If element at mid is 2
+			// move it to last
+			else
+			{
+				int temp = arr[mid];
+				arr[mid] = arr[high];
+				arr[high] = temp;
+				high--;
+			}
+		}
+
+		System.out.println(Arrays.toString(arr));
+	}
+
+}
