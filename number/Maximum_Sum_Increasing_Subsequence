@@ -1,0 +1,60 @@
+
+/**
+ * Problem Statement:
+ *
+ * Given an array of n positive integers. Write a program to find the sum of maximum sum subsequence of the given array
+ * such that the integers in the subsequence are in increasing order.
+ *
+ *
+ * Video: https://youtu.be/99ssGWhLPUE
+ *
+ * Reference:
+ * http://www.geeksforgeeks.org/dynamic-programming-set-14-maximum-sum-increasing-subsequence/
+ */
+
+
+public class MaximumSumIncreasingSubsequence
+{
+
+	public int maxSum(int arr[])
+	{
+		int temp[] = new int[arr.length];
+
+		for (int i = 0; i < temp.length; i++)
+		{
+			temp[i] = arr[i];
+		}
+
+		for (int i = 1; i < temp.length; i++)
+		{
+			for (int j = 0; j < i; j++)
+			{
+				if (arr[j] < arr[i])
+				{
+					temp[i] = Math.max(temp[i], temp[j] + arr[i]);
+				}
+			}
+		}
+
+		int max = temp[0];
+		for (int i = 1; i < temp.length; i++)
+		{
+			if (temp[i] > max)
+			{
+				max = temp[i];
+			}
+		}
+		return max;
+	}
+
+	public static void main(String args[])
+	{
+		MaximumSumIncreasingSubsequence mss = new MaximumSumIncreasingSubsequence();
+		//int arr[] = { 1, 101, 10, 2, 3, 100, 4 };
+		int[] arr = { 468, 335, 501, 170, 725, 479, 359, 963, 465, 706, 146, 282, 828, 962, 492, 996, 943, 828, 437,
+				392, 605, 903, 154, 293, 383, 422, 717, 719, 896, 448, 727, 772, 539, 870, 913, 668, 300, 36, 895, 704,
+				812, 323 };
+		int r = mss.maxSum(arr);
+		System.out.print(r);
+	}
+}
