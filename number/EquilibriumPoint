@@ -40,7 +40,7 @@ public class FindEquilibriumPoint
 
 		}
 		if (l_sum == r_sum && left == right)
-			System.out.println(left+1);
+			System.out.println(left);
 		else
 			System.out.println(-1);
 	}
