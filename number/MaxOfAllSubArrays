@@ -1,0 +1,20 @@
+public class MaxOfAllSubArrays
+{
+	public static void main(String[] args)
+	{
+		int[] inp = { 1, 2, 3, 1, 4, 5, 2, 3, 6};
+
+		int len = inp.length;
+
+		for (int i = 0; i < inp.length - 2; i++)
+		{
+			int max_sub = inp[i];
+			for (int j = i + 1; j < i + 3; j++)
+			{
+				if (inp[j] > max_sub)
+					max_sub = inp[j];
+			}
+			System.out.print(max_sub + " ");
+		}
+	}
+}
