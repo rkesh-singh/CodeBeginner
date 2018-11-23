@@ -1,0 +1,38 @@
+// https://practice.geeksforgeeks.org/problems/unsorted-array/0
+
+public class LeftSideSmallerRightSideGreater
+{
+
+	public static void main(String[] args)
+	{
+		//int[] inp = { 11, 9, 12 };
+		int[] inp = { 4, 3, 2, 7, 8, 9};
+		
+		//4 3 2 7 8 9
+
+
+		int array_size = inp.length;
+		int[] left = new int[array_size];
+		left[0] = inp[0];
+		int[] right = new int[array_size];
+		right[array_size - 1] = inp[array_size - 1];
+		int result = -1;
+
+		for (int i = 1, j = array_size - 2; i < inp.length; i++, j--)
+		{
+			left[i] = Math.max(left[i - 1], inp[i]);
+			right[j] = Math.min(right[j + 1], inp[j]);
+		}
+
+		for (int i = 1; i < inp.length -1; i++)
+		{
+			if (left[i] == right[i])
+			{
+				result = left[i];
+				break;
+			}
+		}
+
+		System.out.println(result);
+	}
+}
