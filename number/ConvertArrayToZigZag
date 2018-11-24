@@ -1,0 +1,60 @@
+https://practice.geeksforgeeks.org/problems/convert-array-into-zig-zag-fashion/0
+
+Submissions: 10064   Accuracy: 50.11%   Difficulty: Basic
+          
+Given an array A (distinct elements) of size N. Rearrange the elements of array in zig-zag fashion. The converted array should be in
+form a < b > c < d > e < f. The relative order of elements is same in the output i.e you have to iterate on the original array only.
+
+Example:
+Input:
+4 3 7 8 6 2 1
+1 4 3 2
+Output:
+3 7 4 8 2 6 1
+1 4 2 3
+
+import java.util.Arrays;
+
+public class ConvertArrayToZigZag
+{
+	public static void main(String[] args)
+	{
+		int[] inp = { 4, 3, 7, 8, 6, 2, 1 };
+		
+		printZigZag(inp);
+		for (int i = 0; i < inp.length; i++)
+		{
+			System.out.println(inp[i] + " ");
+		}
+		System.out.println();
+	}
+
+	private static void printZigZag(int[] inp)
+	{
+		boolean odd = false;
+
+		for (int i = 0; i < inp.length - 1; i++)
+		{
+			if (odd)
+			{
+				if (inp[i] < inp[i + 1])
+					swap(inp, i);
+				odd = false;
+			} else
+			{
+				if (inp[i] > inp[i + 1])
+					swap(inp, i);
+				odd = true;
+			}
+		}
+
+	}
+
+	private static void swap(int[] a, int j)
+	{
+		int temp = a[j];
+		a[j] = a[j + 1];
+		a[j + 1] = temp;
+	}
+}
+
