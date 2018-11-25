@@ -1,0 +1,55 @@
+https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
+
+
+public class ArraySpiralTraversing
+{
+	public static void main(String[] args)
+	{
+		//int[][] inp = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+		int[][] inp = { { 9, 54}, {33, 58}, {88, 45}, {57, 9}, {95, 98 }, { 14 ,53}, {46, 65}, {71, 54}, {52, 2}, {77, 67 }};
+		// int[][] inp = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
+		// int[][] inp = { { 1, 2, 3}, {4, 5, 6 }, {7, 8, 9 } };
+		int i;
+		int r_start = 0, c_start = 0;
+		int r_end = 10, c_end = 2;
+
+		while (r_start < r_end && c_start < c_end)
+		{
+			{
+				for (i = c_start; i < c_end; i++)
+				{
+					System.out.print(inp[r_start][i] + " ");
+
+				}
+				r_start++;
+
+				for (i = r_start; i < r_end; i++)
+				{
+					System.out.print(inp[i][c_end - 1] + " ");
+
+				}
+				c_end--;
+
+				if (r_start < r_end)
+				{
+					for (i = c_end - 1; i >= c_start; i--)
+					{
+						System.out.print(inp[r_end - 1][i] + " ");
+
+					}
+					r_end--;
+				}
+
+				if (c_start < c_end)
+				{
+					for (i = r_end - 1; i >= r_start; i--)
+					{
+						System.out.print(inp[i][c_start] + " ");
+
+					}
+					c_start++;
+				}
+			}
+		}
+	}
+}
