@@ -1,0 +1,39 @@
+https://www.geeksforgeeks.org/largest-subarray-with-equal-number-of-0s-and-1s/
+
+
+public class LargestBinarySubArray
+{
+	public static void main(String[] args)
+	{
+		int[] inp = { 1, 0, 1, 1, 1, 0, 0 };
+
+		int maxSize = -1;
+		int start = 0;
+		int sum = 0;
+
+		for (int i = 0; i < inp.length; i++)
+		{
+			sum = inp[i] == 0 ? -1 : 1;
+
+			for (int j = i + 1; j < inp.length; j++)
+			{
+				if (inp[j] == 0)
+					sum += -1;
+				else
+					sum += 1;
+
+				if (sum == 0 && maxSize < j - 1 + 1)
+				{
+					maxSize = j - 1 + 1;
+					start = i;
+				}
+			}
+		}
+
+		if (maxSize == -1)
+			System.out.println("not found");
+		else
+			System.out.println(maxSize);
+
+	}
+}
