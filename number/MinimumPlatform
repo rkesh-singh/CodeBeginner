@@ -1,0 +1,69 @@
+https://practice.geeksforgeeks.org/problems/minimum-platforms/0
+
+package sample18;
+
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+public class MinimumPlatform
+{
+	public static void main(String[] args)
+	{
+		
+		 //  int[] arr = { 900, 940, 950, 1100, 1500, 1800 }; 
+		 //  int[] dep = { 910, 1200, 1120, 1130, 1900, 2000 };
+		
+		   int[] arr = { 635,1032,632,941,1141,1509,1359,128,123,626,313,350,853,1551,540,123,357,1500,334,1315,131,1008,330,926,907,932,452,127,704,1854,1718,1924,1337,623,720 }; 
+		   int[] dep = { 1202,2100,2151,941,1751,1549,1411,949,1500,647,2105,1350,1552,2300,2022,1238,2013,1543,2300,1332,2125,1300,200,941,924,1030,800,2010,755,1857,1829,2335,1348,1700,1500 };
+		 
+		 /*int[] arr = { 1445, 1709, 124, 1422, 552, 1413, 1828, 551, 847, 32, 1347, 1131, 1320, 553, 1710, 825, 1658, 623,
+				244, 643, 740, 2, 233, 1327, 1408, 1543, 59, 1023, 525, 323, 628, 921, 1740, 1317, 1807, 811, 146, 840,
+				1216, 931, 1910, 633, 817, 1506, 1800, 935, 242, 1615, 1435, 1711, 1515, 328, 1837, 301, 1801, 757,
+				1337, 1620, 853, 1917, 1316, 1325, 1355, 1908, 1111 };
+		int[] dep = { 1519, 1759, 2000, 1431, 1522, 1445, 1847, 558, 2117, 1600, 1348, 1315, 2100, 2100, 1735, 1700,
+				2100, 644, 341, 1048, 1535, 1335, 1721, 1442, 1837, 1734, 2238, 1048, 1400, 2346, 1641, 958, 1829, 2300,
+				1826, 1018, 855, 844, 1224, 1000, 1958, 645, 826, 1740, 2151, 955, 527, 1633, 1453, 1718, 2212, 810,
+				1921, 400, 2000, 2102, 1345, 1627, 1200, 1928, 1355, 1400, 1357, 1924, 2100 };*/
+		
+		
+		   
+		Arrays.sort(arr);
+		Arrays.sort(dep);
+
+		// plat_needed indicates number of platforms
+		// needed at a time
+		int plat_needed = 1, result = 1;
+		int i = 1, j = 0;
+
+		int n = arr.length;
+		// Similar to merge in merge sort to process
+		// all events in sorted order
+		while (i < n && j < n)
+		{
+			// If next event in sorted order is arrival,
+			// increment count of platforms needed
+			if (arr[i] <= dep[j])
+			{
+				System.out.println(arr[i] + " <= " + dep[j] + " plat_needed " + (plat_needed + 1));
+				plat_needed++;
+				i++;
+
+				// Update result if needed
+				if (plat_needed > result)
+					result = plat_needed;
+			}
+
+			// Else decrement count of platforms needed
+			else
+			{
+				System.out.println(arr[i] + " > " + dep[j] + " plat_needed " + (plat_needed - 1));
+				plat_needed--;
+				j++;
+			}
+		}
+
+		System.out.println(result);
+	}
+}
