@@ -1,0 +1,46 @@
+1. Find duplicate records in table?
+
+	SELECT EmpId, Project, Salary, COUNT(*)
+	FROM EmployeeSalary
+	GROUP BY EmpId, Project, Salary
+	HAVING COUNT(*) > 1;
+
+2. Find total count for above query?
+
+	SELECT COUNT(*) FROM (SELECT  * FROM EMPLOYEES GROUP BY NAME HAVING COUNT(*) > 1) AS T1
+
+3. Write a SQL query to fetch all the Employees who are also managers from EmployeeDetails table.
+
+	SELECT E_ID FROM EMPLOYEEDETAILS E INNER JOIN EMPLOYEEDETAILS M ON E.E_ID = M.MANAGER_ID
+
+4. Write a SQL query to remove duplicates from a table without using temporary table.
+
+	DELETE FROM EmployeeSalary  
+	WHERE EmpId IN (
+	SELECT EmpId 
+	FROM EmployeeSalary       
+	GROUP BY Project, Salary
+	HAVING COUNT(*) > 1));
+
+	THIS WILL DELETE ALL RECORDS WHICH ARE PRESENT MORE THAN 1 TIME.
+
+
+
+5. Write a SQL query to create a new table with data and structure copied from another table.
+
+	CREATE TABLE NEWTABLE SELECT * FROM EXISTING_TABLE;
+
+6. EXTRACT DAY, MONTH AND YEAR FROM DATE  
+
+	DAY(NOW())
+	MONTH(NOW())
+	YEAR(NOW()))
+
+7. Write SQL query to find the nth highest salary from table.
+
+	SELECT Salary FROM Employee ORDER BY Salary DESC LIMIT N-1,1;
+
+		LIMIT A, B
+			A - OFFSET
+			B - LIMIT
+8. 
