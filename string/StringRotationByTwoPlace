@@ -1,0 +1,30 @@
+https://practice.geeksforgeeks.org/problems/check-if-string-is-rotated-by-two-places/0
+
+public class StringRotationByTwoPlace
+{
+	public static void main(String[] args)
+	{
+		String a = "amazon";
+		String b = "azonam";
+
+		int findRotationbyTwoPlace = findRotationbyTwoPlace(a, b);
+		System.out.println(findRotationbyTwoPlace);
+
+	}
+
+	private static int findRotationbyTwoPlace(String a, String b)
+	{
+		char[] aChar = a.toCharArray();
+		char[] bChar = b.toCharArray();
+		int len = b.length() - 1;
+		if (a.length() != b.length())
+			return 0;
+
+		if ((aChar[0] == bChar[len - 1] && aChar[1] == bChar[len])
+				|| (bChar[0] == aChar[len - 1] && bChar[1] == aChar[len]))
+			return 1;
+
+		return 0;
+
+	}
+}
