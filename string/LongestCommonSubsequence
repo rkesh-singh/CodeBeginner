@@ -1,0 +1,65 @@
+https://www.youtube.com/watch?v=NnD96abizww
+
+public class LongestCommonSubsequence
+{
+
+	public static void main(String[] args)
+	{
+		String str1 = "acbc";
+		String str2 = "abcdaf";
+
+		System.out.println(getLongestCommonSubString(str1.toCharArray(), str2.toCharArray()));
+	}
+
+	private static int getLongestCommonSubString(char[] char1, char[] char2)
+	{
+		int row = char1.length + 1;
+		int col = char2.length + 1;
+
+		int temp[][] = new int[row][col];
+		int maxLen = 0;
+		for (int i = 1; i < row; i++)
+		{
+			for (int j = 1; j < col; j++)
+			{
+				if (char1[i - 1] == char2[j - 1])
+					temp[i][j] = temp[i - 1][j - 1] + 1;
+				else
+					temp[i][j] = Math.max(temp[i - 1][j], temp[i][j - 1]);
+
+				maxLen = maxLen > temp[i][j] ? maxLen : temp[i][j];
+			}
+
+		}
+		String maxStr = "";
+		row--;
+		int k = --col;
+		for (int i = row; i > 0; i--)
+		{
+			for (int j = k; j > 0; j--)
+			{
+				if(temp[i][j] == temp[i][j - 1]){
+					continue;
+				}
+				if(temp[i][j] == temp[i - 1][j]){
+					if(char1[i -1] == char2[j - 1])
+						maxStr = char2[j -1] + maxStr;
+					k = j ;
+					break;
+				}
+				if(temp[i][j] == temp[i - 1][j - 1] + 1){
+					if(char1[i -1] == char2[j - 1])
+						maxStr = char2[j -1] + maxStr;
+					k = j -1;
+					break;
+				}
+				
+			}
+
+		}
+		
+		System.out.println(maxStr);
+
+		return maxLen;
+	}
+}
