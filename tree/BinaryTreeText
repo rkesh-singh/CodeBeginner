@@ -1,0 +1,11 @@
+
+Operation
+----------
+1. set right and left node
+2. get right and left node
+3. set data
+4. get data
+
+Why Trees?
+1. Trees are quicker than linked list and slower than arrays.
+2. Trees provide moderate Insertion/Deletion (quicker than arrays and slower than unordered linked list)
