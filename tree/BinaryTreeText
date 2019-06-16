@@ -9,3 +9,19 @@ Operation
 Why Trees?
 1. Trees are quicker than linked list and slower than arrays.
 2. Trees provide moderate Insertion/Deletion (quicker than arrays and slower than unordered linked list)
+
+Full Binary Tree 
+--------------------
+A full binary tree is a binary tree in which all nodes except leaves have two childrens. 
+
+
+Complete Binary Tree
+---------------------
+A Binary Tree is complete Binary Tree if all levels are completely filled except possibly 
+the last level and the last level has all keys as left as possible.
+
+
+Perfect Binary Tree
+---------------------
+A Binary tree is Perfect Binary Tree in which all internal nodes have two children and all leaves are at the same level.
+
