@@ -25,3 +25,22 @@ Perfect Binary Tree
 ---------------------
 A Binary tree is Perfect Binary Tree in which all internal nodes have two children and all leaves are at the same level.
 
+
+Tree Traversal
+--------------
+
+1. Breadth First or Level Order Traversal
+2. Depth First Traversal
+  1) Preorder        N L R [print node then left node and then right node]
+  2) Inorder         L N R
+  3) Postorder       L R N
+
+1.Uses Of Preorder
+  Preorder traversal is used to get the prefix expression of an expression tree.
+  https://en.wikipedia.org/wiki/Polish_notation
+  
+2.Uses of Postorder
+  Postorder traversal is used to get the postfix expression of an expression tree.
+  http://en.wikipedia.org/wiki/Reverse_Polish_notation
+  
+
