@@ -1,0 +1,76 @@
+https://www.geeksforgeeks.org/generics-in-java/
+
+Advantages of Generics
+------------------------
+
+1. Code Reuse: We can write a method/class/interface once and use for any type we want.
+
+2. Type Safety : Generics make errors to appear compile time than at run time 
+(It’s always better to know problems in your code at compile time rather than making your code fail at run time). 
+Suppose you want to create an ArrayList that store name of students and if by mistake programmer adds an integer object 
+instead of string, compiler allows it. But, when we retrieve this data from ArrayList, it causes problems at runtime. 
+
+
+class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+        // Creatinga an ArrayList without any type specified 
+        ArrayList al = new ArrayList(); 
+  
+        al.add("Sachin"); 
+        al.add("Rahul"); 
+        al.add(10); // Compiler allows this 
+  
+        String s1 = (String)al.get(0); 
+        String s2 = (String)al.get(1); 
+  
+        // Causes Runtime Exception 
+        String s3 = (String)al.get(2); 
+    } 
+} 
+
+
+Output :
+--------
+
+Exception in thread "main" java.lang.ClassCastException: 
+   java.lang.Integer cannot be cast to java.lang.String
+	at Test.main(Test.java:19)
+  
+How generics solve this problem?
+At the time of defining ArrayList, we can specify that this list can take only String objects.
+filter_none
+
+
+// Using generics converts run time exceptions into  
+// compile time exception. 
+import java.util.*; 
+  
+class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+        // Creating a an ArrayList with String specified 
+        ArrayList <String> al = new ArrayList<String> (); 
+  
+        al.add("Sachin"); 
+        al.add("Rahul"); 
+  
+        // Now Compiler doesn't allow this 
+        al.add(10);  
+  
+        String s1 = (String)al.get(0); 
+        String s2 = (String)al.get(1); 
+        String s3 = (String)al.get(2); 
+    } 
+} 
+
+Output:
+
+15: error: no suitable method found for add(int)
+        al.add(10); 
+          ^
+3. Individual Type Casting is not needed: 
+
+If we do not use generics, then, in the above example every-time we retrieve data from ArrayList, we have to typecast it. Typecasting at every retrieval operation is a big headache. If we already know that our list only holds string data then we need not to typecast it every time. 
