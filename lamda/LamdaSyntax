@@ -1,0 +1,13 @@
+
+https://www.mkyong.com/java8/java-8-lambda-comparator-example/
+
+listDevs.sort((Developer o1, Developer o2)->o1.getAge()-o2.getAge());
+	
+//java 8 only, lambda also, to print the List
+listDevs.forEach((developer)->System.out.println(developer));
+
+
+listDevs.sort((Developer o1, Developer o2)->o1.getAge()-o2.getAge());
+	
+//lambda, valid, parameter type is optional
+listDevs.sort((o1, o2)->o1.getAge()-o2.getAge());
