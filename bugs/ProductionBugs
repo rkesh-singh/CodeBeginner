@@ -1,7 +1,7 @@
 Snowflake streaming bug
 ------------------------
 
-With standalone scala program Snowflake streaming was working fine.After integrating in product data was loading
+1. With standalone scala program Snowflake streaming was working fine.After integrating in product data was loading
 to staging but rest notification to snowpipe was failing.
 
 Debug:
@@ -17,6 +17,14 @@ When we were reading huge datasets few column ecords was coming null randomly.
 Debug:
 -------
 In Snowflake JDBC release notes we found that issue exist and got fixed in further build.
+
+
+2. Customer Issue.
+
+Customer was not able to test with proxy enabled.
+GCS spent 3 weeks with customer, customer was at verge to close the deal.
+
+Query came to RnD, I checked the release notes of SNowflake JDBC third party and found support of feature enabled form latets version.
 
 
 
