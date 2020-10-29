@@ -1,0 +1,34 @@
+Sprint Retrospection
+
+Total planned stories for Sprint-2   24	NA
+Total completed stories for Sprint-2  21	NA
+Number of stories moved to Sprint-2  3	Due to unplanned work involved in addressing RDCV issues
+Number of stories need to be split 0	NA
+Total story points covered	45	~7.5 per developer (RDCV, R35 upgrades & EFRs efforts are not visible here)
+
+What went well? (not repeating what's already captured in Sprint-1 retrospection)
+  Team felt more agile to consider new items to planned for (like RDCV Jira) easily compare to before being agile
+  Good team work on distributing RDCVs by exchanging knowledge
+  Team felt more capable and flexible to pick up any critical items from other's pool to reduce the risk of missing the deadlines  
+  Well organized compare to R35 process
+  
+  Good coverage understanding on what everyone is working on and good to share knowledge and learnings across
+  Inclusion of EBF into daily stand-up helped the team
+  Time allotted for daily stand-up was sufficient to discuss all items
+  Helped having shorter weekly scrum as most of the items are already discussed in daily standup.
+  
+  
+What can be done differently?
+  Assumption of CCI/AppSDK keeps connector logic common is not quite true. We have to handle product specific code changes or even research to match parity. AI: On SDK team to ensure no parity gaps between products; or at least get it well documented in the form of wiki; so that team can evaluate it early in cycle (JDBC V2).
+  Co-ownership of connector adds confusion and delay overall delivery. It would be good to have the complete ownership of connector in one team (JDBC V2).
+  Latest build availability causes delay especially when changes like model changes (multi component situation), we have to wait for latest build to resume (Oracle Kerberos).
+  Having better clarity on the requirement from GCS on the customer use-case would have saved number of research cycles (Teradata PT).
+  PoC/Research item can be planned in a separate Sprint for better handling. For complex Epics or where unclarity is involved, we can think of splitting it like this.
+  It's better to get QA onboarded as well; so that all topics are discussed collectively.
+  
+  EBF inflow is unpredictable which sometime goes more than 50% sustenance capacity. Having pre-configured setup for EBF work may help quicker analysis and troubleshooting.
+  For any merging effort (CCI/appSDK-based connectors), let's add separate story for identifying parity gaps; so that we can avoid seeing later surprises.
+  Build availability as well as identifying right branch to check - process is not very clear especially on cloud environment.
+  Doc team involvement towards last Sprint is good so that they participate in any limitations related discussions.
+  RDCVs could be planned properly in advanced than ad-hoc basis; also they should be ETA to security team till which they can raise issues for upcoming release.
+  For test plan (for functional-qa items owned by dev), we need to spend more time during writing test plan. Need to understand feature beyond from connector side (like CCI, product level, etc.).
