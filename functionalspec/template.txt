@@ -1,0 +1,38 @@
+1. Goal
+2. Background
+  2.1 IAM Roles support for S3/Redshift in CDI
+  2.2 IAM Roles support for S3/Redshift in DEI/BDM
+  2.2.1 Execution Flow - Spark engine
+  2.3 CDI-e Master and Worker Roles
+    Predefined Master/Worker Roles
+3. Requirements and Assumptions
+  3.1 Requirements
+  3.2 Limitations and Assumptions
+    3.2.1 Expectation from different credentials and their types for same S3 bucket
+    3.2.2 IAM Role's Trust expectation by Serverless
+4. Proposal
+  4.1 Execution flow
+  4.2 EXTERNAL_STORAGE_CREDENTIALS properties for IAM Roles Support
+  4.3 Enhancements to AssumedRoleCredentialsProvider
+  4.4 Expectations from Credential Provider needed to assume role
+  4.5 Inline policy additions to Worker role
+  4.6 User configurable AssumeRole Properties
+  4.6 Expected Work
+  4.7 Limit / Throttling considerations
+  4.8 Proposal Limitations
+5. Other Approaches Considered
+  5.1 Approach 1 - Reuse BDM support for S3 IAM Roles
+    5.1.1 Approach Details
+    5.1.2 Shortcomings
+  5.2 Approach 2 - Agent's responsibility to fetch AWS credentials
+    5.2.1 Approach Details
+    5.2.2 Additional Requirements
+    5.2.3 Shortcomings
+  5.3 Approach 3 - Credentials fetch/refresh on cluster; Separate InfaCredentialProvider class per bucket
+    5.3.1 Approach Details
+    5.3.2 Additional Requirements
+    5.3.3 Shortcomings
+  5.4 Approach 4 - Using kube2iam OR kube-aws-iam-controller
+6. Alternatives to IAM Roles
+    S3 Access Points
+7. References
